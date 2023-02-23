@@ -1,0 +1,25 @@
+<project basedir="." default="package" name="ezx-basic-application">
+	<property name="app" value="prolific" />
+	<property name="deploy.dir" value="target/deploy" />
+	<property name="lib.dir" value="${deploy.dir}/lib" />
+	<property name="dependency.dir" value="target/dependency" />
+	<target name="init">
+		<mkdir dir="${deploy.dir}" />
+		<mkdir dir="${lib.dir}" />
+	</target>
+	<target name="copy.jar">
+		<copy todir="${deploy.dir}">
+			<fileset dir="target">
+				<include name="${app}*.jar" />
+			</fileset>
+		</copy>
+	</target>
+	<target name="copy.dependencies">
+		<copy todir="${lib.dir}">
+			<fileset dir="${dependency.dir}">
+				<include name="*" />
+			</fileset>
+		</copy>
+	</target>
+	<target name="package" depends="init, copy.dependencies, copy.jar" />
+</project>

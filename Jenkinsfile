@@ -6,8 +6,8 @@ pipeline {
 	}
     stages {
         stage('build') {
-        	echo 'running build...'
             steps {
+            	echo 'running maven build'
                 bat 'mvn --version'
                 bat 'mvn test'
             }

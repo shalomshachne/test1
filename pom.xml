@@ -3,7 +3,7 @@
 
 	<groupId>ezx</groupId>
 	<artifactId>test1</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>test1</name>
@@ -16,7 +16,7 @@
 		<developerConnection>
 			scm:git:https://github.com/shalomshachne/test1.git</developerConnection>
 		<url>scm:git:https://github.com/shalomshachne/test1.git</url>
-	  <tag>test1-0.0.1</tag>
+	  <tag>HEAD</tag>
   </scm>
 	<distributionManagement>
 		<repository>

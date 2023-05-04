@@ -11,7 +11,29 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-
+	<scm>
+		<connection>scm:git:https://github.com/shalomshachne/test1.git</connection>
+		<developerConnection>
+			scm:git:https://github.com/shalomshachne/test1.git</developerConnection>
+		<url>scm:git:https://github.com/shalomshachne/test1.git</url>
+	</scm>
+	<distributionManagement>
+		<repository>
+			<uniqueVersion>false</uniqueVersion>
+			<id>ezx-release</id>
+			<name>EZX 107 Nexus Repository</name>
+			<url>http://192.168.1.107:8081/nexus/content/repositories/releases/</url>
+			<layout>default</layout>
+		</repository>
+		<snapshotRepository>
+			<uniqueVersion>false</uniqueVersion>
+			<id>ezx-snapshot</id>
+			<name>EZX 107 Nexus Repository</name>
+			<url>http://192.168.1.107:8081/nexus/content/repositories/snapshots/</url>
+			<layout>default</layout>
+		</snapshotRepository>
+	</distributionManagement>	
+	
 	<build>
 		<plugins>
 			<plugin>

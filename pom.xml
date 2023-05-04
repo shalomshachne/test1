@@ -3,7 +3,7 @@
 
 	<groupId>ezx</groupId>
 	<artifactId>test1</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<packaging>jar</packaging>
 
 	<name>test1</name>
@@ -16,7 +16,8 @@
 		<developerConnection>
 			scm:git:https://github.com/shalomshachne/test1.git</developerConnection>
 		<url>scm:git:https://github.com/shalomshachne/test1.git</url>
-	</scm>
+	  <tag>test1-0.0.1</tag>
+  </scm>
 	<distributionManagement>
 		<repository>
 			<uniqueVersion>false</uniqueVersion>
@@ -223,7 +224,7 @@
 		<dependency>
 			<groupId>ezx</groupId>
 			<artifactId>ezx-test-utils</artifactId>
-			<version>1.9-SNAPSHOT</version>
+			<version>1.9</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

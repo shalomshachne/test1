@@ -6,7 +6,7 @@ pipeline {
 	}
 	
 	parameters {
-	    boolean (name: 'RUN_RELEASE', defaultValue: false, description: 'set to true to trigger a Release build')
+	   properties([parameters([booleanParam(description: 'Determine whether to run Release build', name: 'RUN_RELEASE')])])
 	}
 
     stages {

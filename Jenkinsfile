@@ -6,9 +6,9 @@ pipeline {
 	}
 	
 	parameters {
-	   properties([parameters([booleanParam(description: 'Determine whether to run Release build', name: 'RUN_RELEASE')])])
+	  booleanParam description: 'my description', name: 'RUN_RELEASE'
 	}
-
+	
     stages {
         stage('build') {
             steps {

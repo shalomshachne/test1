@@ -4,6 +4,11 @@ pipeline {
 	tools {
 		maven 'Jenkins-Maven'
 	}
+	
+	parameters {
+	    boolean (name: 'RUN_RELEASE', defaultValue: false, description: 'set to true to trigger a Release build')
+	}
+
     stages {
         stage('build') {
             steps {
@@ -12,6 +17,22 @@ pipeline {
                 bat 'mvn test'
             }
         }
+        stage('release') {
+        	when {
+        	    expression {
+        	        return params.RUN_RELEASE
+        	        
+        	    }
+				steps {
+				    
+				    echo "running release= " + params.RUN_RELEASE
+				}
+        	    
+        	}
+
+            
+        }
+
     }
     
 	

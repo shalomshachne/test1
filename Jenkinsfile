@@ -22,15 +22,11 @@ pipeline {
         	    expression {
         	        return params.RUN_RELEASE
         	        
-        	    }
-				steps {
-				    
-				    echo "running release= " + params.RUN_RELEASE
-				}
-        	    
+        	    }				        	    
         	}
-
-            
+			steps {				    
+			   echo "running release= " + params.RUN_RELEASE
+			}            
         }
 
     }

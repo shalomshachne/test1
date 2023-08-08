@@ -19,9 +19,10 @@ pipeline {
 					def version = bat script: '@mvn help:evaluate -Dexpression=project.version -q -DforceStdout', returnStdout: true
 					echo 'built version=' + version
 					def commitMessage = "Deploying ${version} to QA"
-					withCredentials([gitUsernamePassword(credentialsId: 'e3e154ed-3807-4bf1-aa5b-d0fbad7b0e86', gitToolName: 'git-tool')]) {
+					withCredentials([gitUsernamePassword(credentialsId: 'e3e154ed-3807-4bf1-aa5b-d0fbad7b0e86', gitToolName: 'git-tool', usernameVariable: 'username',
+                 passwordVariable: 'password')]) {
                          bat 'git tag -a ${version} -m "${commitMessage}" '
-                         bat 'git push origin ${version}'
+                         bat 'git push https://${username}:${password}@github.com/shalomshachne/test1.git ${version}'
 					}
 
 				}

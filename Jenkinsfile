@@ -16,7 +16,7 @@ pipeline {
                 bat 'mvn --version'
                 bat 'mvn test'
 				script {
-					def version = bat script: 'mvn help:evaluate -Dexpression=project.version -q -DforceStdout', returnStdout: true
+					def version = bat script: '@mvn help:evaluate -Dexpression=project.version -q -DforceStdout', returnStdout: true
 					echo 'built version=' + version
 				}
             }

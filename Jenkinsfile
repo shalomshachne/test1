@@ -20,10 +20,8 @@ pipeline {
 					echo 'built version=' + version
 					def commitMessage = "Deploying ${version} to QA"
 					withCredentials([gitUsernamePassword(credentialsId: 'e3e154ed-3807-4bf1-aa5b-d0fbad7b0e86', gitToolName: 'git-tool')]) {
-                         bat """
-                            git tag -a ${version} -m '${commitMessage}'
-                            git push origin ${version}
-                        """
+                         bat 'git tag -a ${version} -m "${commitMessage}" '
+                         bat 'git push origin ${version}'
 					}
 
 				}

@@ -20,7 +20,7 @@ pipeline {
 					echo 'built version=' + version
 					def commitMessage = "Deploying ${version} to QA"
 					withCredentials([gitUsernamePassword(credentialsId: 'e3e154ed-3807-4bf1-aa5b-d0fbad7b0e86')]) {
-						git config --global user.name "${username}"
+						git config --global user.name "shalomshachne"
 						git config --global user.email "shalomshachne@gmail.com"
                          bat 'git tag -a ${version} -m "${commitMessage}" '
                          bat 'git push origin ${version}'

@@ -15,6 +15,10 @@ pipeline {
             	echo 'running maven build'
                 bat 'mvn --version'
                 bat 'mvn test'
+				script {
+					def version = bat 'mvn help:evaluate -Dexpression=project.version -q -DforceStdout', returnStdout: true
+					echo version
+				}
             }
         }
         stage('release') {

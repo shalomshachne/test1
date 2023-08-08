@@ -21,8 +21,10 @@ pipeline {
 					def commitMessage = "Deploying ${version} to QA"
 					withCredentials([gitUsernamePassword(credentialsId: 'e3e154ed-3807-4bf1-aa5b-d0fbad7b0e86', gitToolName: 'git-tool', usernameVariable: 'username',
                  passwordVariable: 'password')]) {
+						git config --global user.name "${username}"
+						git config --global user.email "shalomshachne@gmail.com"
                          bat 'git tag -a ${version} -m "${commitMessage}" '
-                         bat 'git push https://${username}:${password}@github.com/shalomshachne/test1.git ${version}'
+                         bat 'git push origin ${version}'
 					}
 
 				}

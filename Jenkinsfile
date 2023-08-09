@@ -35,11 +35,12 @@ pipeline {
 					version = version + "-2"
 					echo 'built version (ssh)=' + version
 					def commitMessage = "Deploying ${version} to QA"
-					withCredentials([sshUserPrivateKey(credentialsId: 'git-push-access')]) {
-						 bat 'git config --global user.name shalomshachne '
-						 bat 'git config --global user.email shalomshachne@gmail.com" '
-                       //  bat "git tag -a ${version} -m  \"${commitMessage}\" "
-                       // bat "git push --tags"
+					withCredentials([sshUserPrivateKey(credentialsId: 'git-push-access', keyFileVariable: 'key')]) {
+						bat 'git config --global user.name shalomshachne '
+						bat 'git config --global user.email shalomshachne@gmail.com" '
+						bat 'GIT_SSH_COMMAND = "ssh -i $key"'
+                       	bat "git tag -a ${version} -m  \"${commitMessage}\" "
+                        bat "git push --tags"
 					}
 
 				}

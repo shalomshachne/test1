@@ -38,7 +38,7 @@ pipeline {
 					withCredentials([sshUserPrivateKey(credentialsId: 'git-push-access', keyFileVariable: 'key')]) {
 						bat 'git config --global user.name shalomshachne '
 						bat 'git config --global user.email shalomshachne@gmail.com" '
-						bat 'GIT_SSH_COMMAND = "ssh -i $key"'
+						bat 'set GIT_SSH_COMMAND = "ssh -i $key"'
                        	bat "git tag -a ${version} -m  \"${commitMessage}\" "
                         bat "git push --tags"
 					}

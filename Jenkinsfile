@@ -32,12 +32,13 @@ pipeline {
             	echo 'running maven build with ssh'
 				script {
 					def version = bat script: '@mvn help:evaluate -Dexpression=project.version -q -DforceStdout', returnStdout: true
-					echo 'built version=' + version
+					version = version + "-2"
+					echo 'built version (ssh)=' + version
 					def commitMessage = "Deploying ${version} to QA"
 					withCredentials([sshUserPrivateKey(credentialsId: 'git-push-access')]) {
 						 bat 'git config --global user.name shalomshachne '
 						 bat 'git config --global user.email shalomshachne@gmail.com" '
-                         bat "git tag -a ${version}.2 -m  \"${commitMessage}\" "
+                         bat "git tag -a ${version} -m  \"${commitMessage}\" "
                          bat "git push --tags"
 					}
 

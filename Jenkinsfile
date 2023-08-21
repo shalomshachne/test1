@@ -40,7 +40,7 @@ pipeline {
 						bat 'git config --global user.email build@ezxinc.com '
 						bat 'set GIT_SSH_COMMAND = "ssh -i $key"'
                        	bat "git tag -a ${version} -m  \"${commitMessage}\" "
-                        bat "git push ${version}
+                        bat "git push ${version}"
 					}
 
 				}

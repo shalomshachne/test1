@@ -19,9 +19,9 @@ pipeline {
 					def commitMessage = "Deploying ${version} to QA"
 					withCredentials([gitUsernamePassword(credentialsId: 'e3e154ed-3807-4bf1-aa5b-d0fbad7b0e86')]) {
 						 bat 'git config --global user.name shalomshachne '
-						 bat 'git config --global user.email shalomshachne@gmail.com" '
+						 bat 'git config --global user.email shalomshachne@gmail.com '
                          bat "git tag -a ${version} -m  \"${commitMessage}\" "
-                         bat "git push --tags"
+                         bat "git push ${version}"
 					}
 
 				}
@@ -40,7 +40,7 @@ pipeline {
 						bat 'git config --global user.email build@ezxinc.com '
 						bat 'set GIT_SSH_COMMAND = "ssh -i $key"'
                        	bat "git tag -a ${version} -m  \"${commitMessage}\" "
-                        bat "git push --tags"
+                        bat "git push ${version}
 					}
 
 				}
